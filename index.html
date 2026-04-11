@@ -1,0 +1,862 @@
+ <!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Япония · Ноябрь 2026 — Авторский тур</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400&family=DM+Mono:wght@300&family=Noto+Serif+JP:wght@300&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black: #0a0908;
+  --white: #faf7f2;
+  --cream: #f0ebe2;
+  --red: #b5291c;
+  --red2: #d93f2e;
+  --gold: #c4933f;
+  --muted: #7a7060;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Lato', sans-serif;
+  --mono: 'DM Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--white); font-family: var(--sans); font-weight: 300; overflow-x: hidden; }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 60px 24px;
+}
+.hero-kanji {
+  position: absolute;
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(180px, 30vw, 380px);
+  font-weight: 300;
+  color: rgba(255,255,255,0.12);
+  letter-spacing: -0.02em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-rule {
+  width: 1px;
+  height: 80px;
+  background: var(--red);
+  margin-bottom: 40px;
+  animation: growLine 1s ease forwards;
+  transform-origin: top;
+}
+@keyframes growLine { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: up 0.8s 0.3s ease forwards;
+}
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 400;
+  color: var(--white);
+  text-align: center;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: up 0.9s 0.5s ease forwards;
+}
+.hero-title em {
+  font-style: italic;
+  color: rgba(250,247,242,0.45);
+}
+.hero-meta {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  animation: up 0.8s 0.8s ease forwards;
+}
+.hero-meta-item { text-align: center; }
+.hero-meta-item .val {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--white);
+  display: block;
+  line-height: 1;
+}
+.hero-meta-item .lbl {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 4px;
+  display: block;
+}
+.hero-sep {
+  width: 1px;
+  height: 40px;
+  background: rgba(250,247,242,0.15);
+  align-self: center;
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: up 0.8s 1.4s ease forwards;
+}
+.scroll-hint::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 36px;
+  background: var(--muted);
+  animation: scrollPulse 2s ease infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(0.6); }
+}
+@keyframes up { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+
+/* mobile hero */
+@media (max-width: 768px) {
+  .hero-sep { display: none; }
+}
+
+/* ── INTRO ── */
+.intro {
+  background: var(--white);
+  color: var(--black);
+  padding: 100px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.intro-text {}
+.intro-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; color: var(--red); text-transform: uppercase; margin-bottom: 20px; }
+.intro-headline {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+.intro-body { font-size: 15px; line-height: 1.8; color: #4a4540; }
+.intro-visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.intro-kv-list {
+  display: flex;
+  flex-direction: column;
+}
+.intro-kv {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 28px 0;
+}
+.intro-kv-val {
+  font-family: var(--serif);
+  font-size: clamp(40px, 4.5vw, 60px);
+  font-weight: 400;
+  color: var(--black);
+  line-height: 1;
+  min-width: 130px;
+  flex-shrink: 0;
+  letter-spacing: -0.02em;
+}
+.intro-kv-lbl {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+.intro-kv-divider {
+  height: 1px;
+  background: rgba(10,9,8,0.12);
+}
+.intro-kv:first-child {
+  padding-top: 0;
+}
+.intro-kv:last-child {
+  padding-bottom: 0;
+}
+
+/* ── MOMENTS (full-bleed stories) ── */
+.moment {
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.moment-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+}
+.moment-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  -webkit-transition: -webkit-transform 8s ease;
+  transition: transform 8s ease;
+}
+.moment:hover .moment-bg img { -webkit-transform: scale(1.04); transform: scale(1.04); }
+.moment-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(10,9,8,0.95) 0%, rgba(10,9,8,0.45) 60%, rgba(10,9,8,0.2) 100%);
+}
+.moment-content {
+  position: relative;
+  padding: 60px;
+  max-width: 680px;
+}
+.moment-tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em;
+  color: var(--gold); text-transform: uppercase; margin-bottom: 16px; display: block;
+}
+.moment-title {
+  font-family: var(--serif); font-size: clamp(28px, 4vw, 52px);
+  font-weight: 400; line-height: 1.1; margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+.moment-story {
+  font-size: 15px; font-weight: 300; line-height: 1.75;
+  color: rgba(250,247,242,0.75); max-width: 500px;
+}
+.moment-date {
+  margin-top: 24px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+  color: rgba(250,247,242,0.4); text-transform: uppercase;
+}
+
+/* ── TWO-UP GRID ── */
+.two-up {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.mini-moment {
+  position: relative;
+  height: 60vh;
+  min-height: 380px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.mini-moment-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+}
+.mini-moment-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  -webkit-transition: -webkit-transform 8s ease;
+  transition: transform 8s ease;
+}
+.mini-moment:hover .mini-moment-bg img { -webkit-transform: scale(1.06); transform: scale(1.06); }
+.mini-moment-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(10,9,8,0.95) 0%, rgba(10,9,8,0.5) 55%, rgba(10,9,8,0.2) 100%);
+}
+.mini-content {
+  position: relative;
+  padding: 36px 32px;
+}
+.mini-tag { font-family: var(--mono); font-size: 9px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; display: block; }
+.mini-title { font-family: var(--serif); font-size: clamp(20px, 2.5vw, 30px); font-weight: 400; line-height: 1.15; margin-bottom: 12px; }
+.mini-text { font-size: 13px; font-weight: 300; color: rgba(250,247,242,0.65); line-height: 1.65; }
+.mini-date { margin-top: 14px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: rgba(250,247,242,0.35); text-transform: uppercase; }
+
+/* ── TEXT STORY (dark bg, centered) ── */
+.story-text {
+  background: var(--black);
+  padding: 100px 60px;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.story-text .s-quote {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3vw, 36px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgba(250,247,242,0.85);
+  margin-bottom: 24px;
+}
+.story-text .s-body {
+  font-size: 15px; line-height: 1.85;
+  color: rgba(250,247,242,0.5);
+}
+.story-divider {
+  width: 40px; height: 1px; background: var(--red); margin: 0 auto 32px;
+}
+
+/* ── TIMELINE ── */
+.timeline-section {
+  background: var(--cream);
+  color: var(--black);
+  padding: 100px 60px;
+}
+.tl-header { margin-bottom: 60px; }
+.tl-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; color: var(--red); text-transform: uppercase; margin-bottom: 16px; }
+.tl-title { font-family: var(--serif); font-size: clamp(32px, 4vw, 52px); font-weight: 400; letter-spacing: -0.01em; }
+
+.tl-row {
+  display: grid;
+  grid-template-columns: 100px 1px 1fr;
+  gap: 0 32px;
+  margin-bottom: 0;
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.tl-row.vis { opacity: 1; transform: translateX(0); }
+
+.tl-date-col {
+  padding: 20px 0;
+  text-align: right;
+}
+.tl-day { font-family: var(--serif); font-size: 28px; font-weight: 400; line-height: 1; color: var(--black); }
+.tl-mon { font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
+.tl-line-col {
+  display: flex; flex-direction: column; align-items: center;
+}
+.tl-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--red); flex-shrink: 0; margin-top: 26px; }
+.tl-vline { flex: 1; width: 1px; background: rgba(10,9,8,0.12); }
+.tl-row:last-child .tl-vline { display: none; }
+
+.tl-body { padding: 18px 0 28px; }
+.tl-city { font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; color: var(--red); text-transform: uppercase; margin-bottom: 4px; }
+.tl-event { font-family: var(--serif); font-size: 18px; font-weight: 400; margin-bottom: 8px; line-height: 1.3; }
+.tl-desc { font-size: 13px; color: #5a5248; line-height: 1.65; }
+.tl-badge { display: none; }
+.tl-badge.special { background: rgba(181,41,28,0.1); color: var(--red); }
+.tl-badge.nature { background: rgba(57,130,80,0.12); color: #2d6b3e; }
+.tl-badge.culture { background: rgba(127,119,221,0.12); color: #534AB7; }
+.tl-badge.hp { background: rgba(196,147,63,0.15); color: #8a5e1a; }
+
+/* ── PRACTICAL ── */
+.practical {
+  background: var(--black);
+  padding: 80px 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1px;
+  background-color: rgba(250,247,242,0.08);
+}
+.prac-cell {
+  background: var(--black);
+  padding: 36px 28px;
+}
+.prac-icon { font-size: 22px; margin-bottom: 14px; }
+.prac-title { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.prac-body { font-size: 13px; line-height: 1.75; color: rgba(250,247,242,0.5); }
+.prac-body strong { color: rgba(250,247,242,0.85); font-weight: 400; }
+
+/* ── CTA ── */
+.cta {
+  background: var(--red);
+  padding: 80px 60px;
+  text-align: center;
+}
+.cta-title { font-family: var(--serif); font-size: clamp(32px, 5vw, 64px); font-weight: 400; color: var(--white); margin-bottom: 20px; letter-spacing: -0.01em; }
+.cta-sub { font-size: 15px; font-weight: 300; color: rgba(250,247,242,0.75); line-height: 1.7; max-width: 500px; margin: 0 auto 40px; }
+.cta-detail { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: rgba(250,247,242,0.55); }
+
+.intro--single {
+  grid-template-columns: 1fr;
+  display: block;
+  padding: 100px 60px;
+}
+.intro--single .intro-text {
+  max-width: 680px;
+}
+.intro--single .intro-headline {
+  font-size: clamp(32px, 4vw, 52px);
+}
+.intro--single .intro-body {
+  font-size: 16px;
+}
+
+/* ── DEADLINE ── */
+.deadline-section {
+  background: var(--black);
+  padding: 0 60px 100px;
+  position: relative;
+}
+
+.deadline-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  border: 1px solid rgba(196,147,63,0.22);
+  padding: 64px 60px;
+  text-align: center;
+  position: relative;
+}
+.deadline-inner::before,
+.deadline-inner::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--gold);
+  border-style: solid;
+  opacity: 0.6;
+}
+.deadline-inner::before {
+  top: -1px; left: -1px;
+  border-width: 2px 0 0 2px;
+}
+.deadline-inner::after {
+  bottom: -1px; right: -1px;
+  border-width: 0 2px 2px 0;
+}
+.deadline-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.deadline-label::before,
+.deadline-label::after {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--red);
+  opacity: 0.4;
+}
+.deadline-title {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.deadline-date {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1.2;
+  margin-bottom: 32px;
+  display: block;
+}
+.deadline-rule {
+  width: 1px;
+  height: 32px;
+  background: rgba(196,147,63,0.25);
+  margin: 0 auto 28px;
+}
+.deadline-body {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(250,247,242,0.45);
+  line-height: 1.9;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .deadline-section { padding: 0 24px 80px; }
+  .deadline-inner { padding: 48px 32px; }
+  .deadline-bridge { height: 60px; }
+}
+
+footer {
+  background: #050403;
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-jp { font-size: 28px; color: rgba(250,247,242,0.08); letter-spacing: 0.1em; }
+.footer-copy { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; color: rgba(250,247,242,0.25); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .intro { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+  .two-up { grid-template-columns: 1fr; }
+  .hero-content, .moment-content { padding: 40px 24px 60px; }
+  .moment { height: 70vh; min-height: 420px; }
+  .mini-moment { height: 55vh; min-height: 320px; }
+  .mini-title { font-size: 22px; }
+  .mini-text { font-size: 13px; }
+  .mini-content { padding: 24px 20px; }
+  .timeline-section, .story-text { padding: 60px 24px; }
+  .tl-row { grid-template-columns: 72px 1px 1fr; gap: 0 16px; }
+  footer { padding: 32px 24px; }
+  .practical { padding: 0; }
+  .pricing-grid { grid-template-columns: 1fr !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-kanji">日本</div>
+  <div class="hero-rule"></div>
+  <div class="hero-eyebrow">Авторский тур · Ноябрь 2026</div>
+  <h1 class="hero-title">Япония<br><em>по-настоящему</em></h1>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="val">13</span>
+      <span class="lbl">дней</span>
+    </div>
+    <div class="hero-sep"></div>
+    <div class="hero-meta-item">
+      <span class="val">≤8</span>
+      <span class="lbl">человек</span>
+    </div>
+    <div class="hero-sep"></div>
+    <div class="hero-meta-item">
+      <span class="val">16–28</span>
+      <span class="lbl">ноября</span>
+    </div>
+    <div class="hero-sep"></div>
+    <div class="hero-meta-item">
+      <span class="val">6</span>
+      <span class="lbl">городов</span>
+    </div>
+  </div>
+  <div class="scroll-hint"></div>
+</section>
+
+<!-- DEADLINE NOTICE -->
+<section class="deadline-section">
+  <div class="deadline-inner">
+    <div class="deadline-label">Важно</div>
+    <p class="deadline-title">Набор группы закрывается</p>
+    <span class="deadline-date">15 октября 2026</span>
+    <div class="deadline-rule"></div>
+    <p class="deadline-body">После этой даты бронируются все билеты и отели сразу на всю группу — синкансэн, Хогвартс, рёкан в Кавагутико. Места в ноябре разлетаются быстро, а часть позиций нужно покупать строго заранее.</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro intro--single">
+  <div class="intro-text">
+    <div class="intro-label">О туре</div>
+    <h2 class="intro-headline">Это не экскурсия.<br>Это погружение.</h2>
+    <p class="intro-body">Ноябрь в Японии — особенное время. Клёны горят красным и оранжевым, воздух прохладный и прозрачный, и Фудзи видна почти каждый день. Мы проведём 13 дней так, как проводят их японцы: с онсэном под открытым небом, саке прямо у пивоварни, ранним рассветом у пагоды и ужином в японском ресторане.</p>
+</section>
+
+
+<!-- MOMENT 1: ФУДЗИ -->
+<div class="moment">
+  <div class="moment-bg"><img src="https://raw.githubusercontent.com/povmarkiz/japan/main/fuji.jpg" alt="Fuji Mountain">
+   loading="lazy" style="object-position: center 20%;"></div>
+  <div class="moment-overlay"></div>
+  <div class="moment-content">
+    <h2 class="moment-title">Фудзи на рассвете.<br>400 ступеней вверх.</h2>
+    <p class="moment-story">Будильник в 5:30. Темно, тихо, холодно. Ты поднимаешься по 400 ступеням к пагоде Чурэйто — и вдруг из-за горизонта выходит солнце, и вся долина у тебя под ногами. Фудзи в розовом свете, красные клёны, утренний туман над озером. Это один из тех кадров, ради которых едут в Японию. А потом — онсэн под открытым небом и завтрак-кайсэки прямо в рёкане.</p>
+  </div>
+</div>
+
+<!-- TWO-UP: ТОКИО ТАУЭР + СКАЙТРИ -->
+<div class="two-up">
+  <div class="mini-moment">
+    <div class="mini-moment-bg"><img src="https://raw.githubusercontent.com/povmarkiz/japan/refs/heads/main/Tokyo-Tower.jpg" alt="Tokyo Tower"> loading="lazy" style="object-position: center 50%;"></div>
+    <div class="mini-moment-overlay"></div>
+    <div class="mini-content">
+      <h3 class="mini-title">Tokyo Tower.<br>Весь в огнях.</h3>
+      <p class="mini-text">После заката башня загорается оранжевым. Вся 333-метровая конструкция светится над городом. Смотришь снизу из парка Сиба — и понимаешь, почему это один из главных символов Токио.</p>
+    </div>
+  </div>
+  <div class="mini-moment">
+    <div class="mini-moment-bg"><img src="https://raw.githubusercontent.com/povmarkiz/japan/refs/heads/main/skytower.jpg" alt="Tokyo Skytree" loading="lazy" style="object-position: center 30%;"></div>
+    <div class="mini-moment-overlay"></div>
+    <div class="mini-content">
+      <h3 class="mini-title">Tokyo Skytree.<br>Клёны у подножия.</h3>
+      <p class="mini-text">634 метра стали над парком Сумида — а вокруг горят осенние клёны. Момидзи у подножия самой высокой башни в мире. Такое сочетание бывает только в Японии.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TWO-UP: ГИОН + GOLDEN GAI -->
+<div class="two-up">
+  <div class="mini-moment">
+    <div class="mini-moment-bg"><img src="https://raw.githubusercontent.com/povmarkiz/japan/refs/heads/main/gion.jpeg" alt="" loading="lazy" style="object-position: center 60%;"></div>
+    <div class="mini-moment-overlay"></div>
+    <div class="mini-content">
+      <h3 class="mini-title">Гион после заката.<br>Настоящий, живой.</h3>
+      <p class="mini-text">Весь день — современный мегаполис, метро, небоскрёбы. А потом — Гион после заката. Узкие переулки, деревянные фасады, свет сквозь бумажные окна. И силуэт майко в кимоно, торопящейся куда-то в темноту. Два разных мира в одном городе.</p>
+    </div>
+  </div>
+  <div class="mini-moment">
+    <div class="mini-moment-bg"><img src="https://raw.githubusercontent.com/povmarkiz/japan/refs/heads/main/golden-gai.webp" alt="" loading="lazy" style="object-position: center 50%;"></div>
+    <div class="mini-moment-overlay"></div>
+    <div class="mini-content">
+      <h3 class="mini-title">Golden Gai.<br>200 баров, 6 переулков.</h3>
+      <p class="mini-text">Каждый бар — на пять-восемь мест. За стойкой может сидеть тату-мастер, играющий блюз на акустике. Или бывший повар из Осаки, разливающий собственный умэсю. Просто заглядывай в двери.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MOMENT 2: РЫБАЦКАЯ ДЕРЕВНЯ -->
+<div class="moment">
+  <div class="moment-bg"><img src="https://raw.githubusercontent.com/povmarkiz/japan/refs/heads/main/fishing.webp" alt="" loading="lazy" style="object-position: center 40%;"></div>
+  <div class="moment-overlay"></div>
+  <div class="moment-content">
+    <h2 class="moment-title">Деревня, которую<br>не показывают в рекламе.</h2>
+    <p class="moment-story">Три часа на север от Киото, на полуострове Тангo — 230 рыбацких домов, где первый этаж — гараж для лодок. Прямо над водой. Рыбаки живут здесь уже четыре столетия. Никаких автобусов с туристами, никакого Инстаграма у входа. Можно взять лодку и проплыть вдоль деревни с воды — и понять, что Япония умеет хранить тишину.</p>
+  </div>
+</div>
+
+<!-- STORY TEXT -->
+<div style="background: var(--black); padding: 0;">
+  <div class="story-text">
+    <div class="story-divider"></div>
+    <p class="s-quote">«Ноябрь — лучшее время для Японии. Не жарко, не дождливо. Клёны в огне. И Фудзи видна почти каждое утро.»</p>
+    <p class="s-body">Японцы называют это <em>момидзи</em> — сезон осенних клёнов. Он длится всего три недели. Мы попадаем в самый пик: Никко, Кавагутико, Нара, Арасияма — всё горит красным. Это одна из тех вещей, которые сложно объяснить до поездки, но невозможно забыть после.</p>
+  </div>
+</div>
+
+
+<!-- TWO-UP: СЭЙГАНТО + TENJUAN -->
+<div class="two-up">
+  <div class="mini-moment">
+    <div class="mini-moment-bg"><img src="https://raw.githubusercontent.com/povmarkiz/japan/refs/heads/main/Pagoda.jpg" alt="" loading="lazy" style="object-position: center 40%;"></div>
+    <div class="mini-moment-overlay"></div>
+    <div class="mini-content">
+      <h3 class="mini-title">Красная пагода<br>и белый водопад.</h3>
+      <p class="mini-text">Сэйганто-дзи стоит прямо перед водопадом Начи — самым высоким в Японии. Пагода красная, водопад белый, клёны вокруг оранжевые. Один из самых фотографируемых видов страны. И он такой же нереальный вживую.</p>
+    </div>
+  </div>
+  <div class="mini-moment">
+    <div class="mini-moment-bg"><img src="https://raw.githubusercontent.com/povmarkiz/japan/refs/heads/main/Tenjuan.webp" alt="" loading="lazy" style="object-position: center 50%;"></div>
+    <div class="mini-moment-overlay"></div>
+    <div class="mini-content">
+      <h3 class="mini-title">Сад Tenjuan.<br>Пруд, мхи, тишина.</h3>
+      <p class="mini-text">Субхрам Нандзэндзи, который большинство туристов проходит мимо. Пруд с карпами, мхи, отражение кленов в воде. В ноябре здесь буквально перехватывает дыхание.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MOMENT 3: ХОГВАРТС -->
+<div class="moment">
+  <div class="moment-bg"><img src="https://raw.githubusercontent.com/povmarkiz/japan/refs/heads/main/Hogwarts.jpeg" alt="" loading="lazy" style="object-position: center 30%;"></div>
+  <div class="moment-overlay"></div>
+  <div class="moment-content">
+    <h2 class="moment-title">Хогвартс<br>в Токио.</h2>
+    <p class="moment-story">Warner Bros. Studio Tour Tokyo — крупнейший аттракцион Гарри Поттера в мире, первый в Азии. Настоящий Большой зал, костюмы героев фильма, Косой переулок, Запретный лес, Хогвартс-Экспресс с платформы 9¾. Дети или взрослые — без разницы: внутри все становятся студентами первого курса.</p>
+  </div>
+</div>
+
+<!-- TWO-UP: ДАЙКОКУ + ОЛЕНИ НАРЫ -->
+<div class="two-up">
+  <div class="mini-moment">
+    <div class="mini-moment-bg"><img src="https://raw.githubusercontent.com/povmarkiz/japan/refs/heads/main/Daikoku.jpg" alt="" loading="lazy" style="object-position: center 55%;"></div>
+    <div class="mini-moment-overlay"></div>
+    <div class="mini-content">
+      <h3 class="mini-title">Ночная парковка.<br>GT-R, Supra, NSX.</h3>
+      <p class="mini-text">Каждую среду после 20:00 на остров Дайкоку-Футо съезжается то, что японцы любят по-настоящему: Skyline R34, кастомные тачки, запах выхлопа и горячей резины. Ни один путеводитель этого не показывает.</p>
+    </div>
+  </div>
+  <div class="mini-moment">
+    <div class="mini-moment-bg"><img src="https://raw.githubusercontent.com/povmarkiz/japan/refs/heads/main/nara.jpg" alt="Олени Нары" loading="lazy" style="object-position: center 50%;"></div>
+    <div class="mini-moment-overlay"></div>
+    <div class="mini-content">
+      <h3 class="mini-title">1200 оленей.<br>Просто ходят рядом.</h3>
+      <p class="mini-text">В Наре олени — священные животные, они гуляют прямо по улицам и паркам. Берёшь крекер в ларьке — и тебя окружает стадо. Никаких клеток, никаких смотрителей. Просто Япония.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="tl-header">
+    <div class="tl-label">Маршрут по дням</div>
+    <h2 class="tl-title">13 дней.<br>Каждый — другой.</h2>
+    <p style="font-size: 13px; color: #5a5248; line-height: 1.65; margin-top: 16px;">* Маршрут может меняться в зависимости от внешних условий.</p>
+  </div>
+  <div id="tlRows"></div>
+</section>
+
+<!-- PRACTICAL -->
+<div class="practical" id="practicalGrid"></div>
+
+<!-- PRICING SECTION -->
+<section style="background: #0a0908; padding: 80px 60px;">
+  <div style="max-width: 900px; margin: 0 auto;">
+    <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 20px;">Стоимость</div>
+    <h2 style="font-family: var(--serif); font-size: clamp(28px, 4vw, 48px); font-weight: 400; color: var(--white); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 48px;">€2 000 с человека</h2>
+
+    <div class="pricing-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(250,247,242,0.06);">
+
+      <!-- Included -->
+      <div style="background: #0a0908; padding: 40px 36px;">
+        <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px;">Включено в стоимость</div>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px;">
+          <li style="display: flex; gap: 12px; font-size: 14px; line-height: 1.6; color: rgba(250,247,242,0.7);"><span style="color: var(--gold); flex-shrink: 0;">—</span>Все отели и рёкан (12 ночей)</li>
+          <li style="display: flex; gap: 12px; font-size: 14px; line-height: 1.6; color: rgba(250,247,242,0.7);"><span style="color: var(--gold); flex-shrink: 0;">—</span>Весь транспорт по маршруту: синкансэн, автобусы, метро, такси</li>
+          <li style="display: flex; gap: 12px; font-size: 14px; line-height: 1.6; color: rgba(250,247,242,0.7);"><span style="color: var(--gold); flex-shrink: 0;">—</span>Все активности программы: входные билеты, Хогвартс, лодка в Инэ, Чурэйто, Арасияма</li>
+          <li style="display: flex; gap: 12px; font-size: 14px; line-height: 1.6; color: rgba(250,247,242,0.7);"><span style="color: var(--gold); flex-shrink: 0;">—</span>Фото на камеру и съемки с дрона</li>
+          <li style="display: flex; gap: 12px; font-size: 14px; line-height: 1.6; color: rgba(250,247,242,0.7);"><span style="color: var(--gold); flex-shrink: 0;">—</span>Организация и сопровождение</li>
+        </ul>
+      </div>
+
+      <!-- Not included -->
+      <div style="background: #0a0908; padding: 40px 36px;">
+        <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,247,242,0.3); margin-bottom: 24px;">Оплачивается отдельно</div>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px;">
+          <li style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; line-height: 1.6; color: rgba(250,247,242,0.5);"><span>Авиабилеты</span><span style="font-family: var(--mono); font-size: 12px; color: rgba(250,247,242,0.3); white-space: nowrap;">~€800–900</span></li>
+          <li style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; line-height: 1.6; color: rgba(250,247,242,0.5);"><span>Виза в Японию</span><span style="font-family: var(--mono); font-size: 12px; color: rgba(250,247,242,0.3); white-space: nowrap;">~€30</span></li>
+          <li style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; line-height: 1.6; color: rgba(250,247,242,0.5);"><span>Страховка</span><span style="font-family: var(--mono); font-size: 12px; color: rgba(250,247,242,0.3); white-space: nowrap;">~€40–60</span></li>
+          <li style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; line-height: 1.6; color: rgba(250,247,242,0.5);"><span>Питание и напитки (13 дней)</span><span style="font-family: var(--mono); font-size: 12px; color: rgba(250,247,242,0.3); white-space: nowrap;">~€600</span></li>
+          <li style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; line-height: 1.6; color: rgba(250,247,242,0.5);"><span>Шопинг</span><span style="font-family: var(--mono); font-size: 12px; color: rgba(250,247,242,0.3); white-space: nowrap;">на сколько хватит места в чемодане</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div style="margin-top: 2px; background: #0a0908; padding: 24px 36px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <div style="font-size: 13px; color: rgba(250,247,242,0.35); line-height: 1.6; text-align: center; width: 100%;">Полностью вся поездка обойдётся <span style="color: rgba(250,247,242,0.6);">~€3 500</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div style="width: 120px; height: 1px; background: rgba(250,247,242,0.15); margin: 0 auto;"></div>
+<section style="background: var(--black); padding: 80px 60px; text-align: center;">
+  <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 24px;">Связаться</div>
+  <h2 style="font-family: var(--serif); font-size: clamp(32px, 5vw, 56px); font-weight: 400; color: var(--white); line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 20px;">Поедем<br><em style="color: rgba(250,247,242,0.45);">вместе?</em></h2>
+  <p style="font-size: 15px; font-weight: 300; color: rgba(250,247,242,0.6); max-width: 440px; margin: 0 auto 40px; line-height: 1.7;">Расскажи о себе и задай любые вопросы — отвечу в директе.</p>
+  <a href="https://ig.me/m/pov.markiz" target="_blank"
+     style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); color: #fff; text-decoration: none; padding: 16px 32px; border-radius: 100px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; transition: opacity .2s;"
+     onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/>
+      <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.5"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="white"/>
+    </svg>
+    Написать в Instagram
+  </a>
+  <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; color: rgba(250,247,242,0.25); margin-top: 24px;">@pov.markiz · 16–28 ноября 2026</div>
+</section>
+
+<footer>
+  <div class="footer-jp">日本の旅</div>
+  <div class="footer-copy">Авторский тур · Ноябрь 2026</div>
+</footer>
+
+<script>
+const tlData = [
+  { day:"16", city:"Токио", event:"Прилёт. Синдзюку, Кабукитё.", desc:"Первый вечер в городе, который никогда не спит.", badge:null },
+  { day:"17", city:"Токио", event:"Асакуса · Tokyo Skytree · Warner Bros. Studio Tour", desc:"Клёны у подножия самой высокой башни в мире — и Хогвартс вечером.", badge:{type:"hp",text:"Хогвартс"} },
+  { day:"18", city:"Токио", event:"Мэйдзи · Сибуя · Tokyo Tower · Golden Gai", desc:"Оранжевые огни башни после заката — и 200 крошечных баров ночью.", badge:{type:"special",text:"Golden Gai"} },
+  { day:"19", city:"Йокогама", event:"Chinatown · Daikoku Futo", desc:"Ночная парковка с GT-R и Supra — культура, которой нет ни в одном путеводителе.", badge:{type:"special",text:"Car culture"} },
+  { day:"20", city:"Кавагутико", event:"Переезд к Фудзи. Рёкан, онсэн.", desc:"Первый вид на Фудзи. Хото-набэ. Горячие источники под открытым небом.", badge:{type:"nature",text:"Онсэн"} },
+  { day:"21", city:"Кавагутико", event:"Lawson на рассвете · Чурэйто · Озеро Мотосу", desc:"Самый узнаваемый вид Японии — пагода и Фудзи. И тот самый конбини из инстаграма.", badge:{type:"special",text:"Рассвет"} },
+  { day:"22", city:"Киото", event:"Переезд синкансэном · Гион", desc:"Поезд 300 км/ч — и вечером уже переулки квартала гейш.", badge:{type:"culture",text:"Синкансэн"} },
+  { day:"23", city:"Киото", event:"Tenjuan · Нандзэндзи · Фусими Инари", desc:"Самый красивый сад ноябрьского Киото. 10 000 ворот на горе.", badge:{type:"special",text:"Tenjuan"} },
+  { day:"24", city:"Инэ", event:"Рыбацкая деревня на воде", desc:"Три часа от Киото — и другая Япония. Лодки, рыбаки, тишина.", badge:{type:"nature",text:"Аутентика"} },
+  { day:"25", city:"Киото", event:"Арасияма · Нисики · Вечерний Гион", desc:"Бамбуковая роща, 120 лавок рынка, виски-бар ночью.", badge:null },
+  { day:"26", city:"Начи", event:"Водопад Начи 133м · Сэйганто-дзи", desc:"Самый высокий водопад Японии и красная пагода перед ним. UNESCO.", badge:{type:"special",text:"UNESCO"} },
+  { day:"27", city:"Осака", event:"Синсайбаши · Нара · 1200 оленей · Дотонбори", desc:"Шопинг утром, олени днём, неоновое сердце Осаки вечером.", badge:{type:"nature",text:"Олени Нары"} },
+  { day:"28", city:"Вылет", event:"Кансай → домой", desc:"Последний день. Багаж воспоминаний — не ограничен.", badge:null },
+];
+
+const container = document.getElementById('tlRows');
+tlData.forEach((d, i) => {
+  const row = document.createElement('div');
+  row.className = 'tl-row';
+  const badgeHTML = d.badge ? `<span class="tl-badge ${d.badge.type}">${d.badge.text}</span>` : '';
+  row.innerHTML = `
+    <div class="tl-date-col"><div class="tl-day">${d.day}</div><div class="tl-mon">ноя</div></div>
+    <div class="tl-line-col"><div class="tl-dot"></div><div class="tl-vline"></div></div>
+    <div class="tl-body">
+      <div class="tl-city">${d.city}</div>
+      <div class="tl-event">${d.event}</div>
+      <div class="tl-desc">${d.desc}</div>
+      ${badgeHTML}
+    </div>
+  `;
+  row.style.transitionDelay = `${i * 0.04}s`;
+  container.appendChild(row);
+});
+
+const practicalData = [
+  { icon:"🚄", title:"Транспорт", body:"Между городами летим на <strong>синкансэне</strong> — японском скоростном поезде. По 300 км/ч, плавно, вовремя. Внутри городов — метро и автобусы по единой карте. Всё включено, ничего не надо покупать самостоятельно." },
+  { icon:"🏨", title:"Ночлег", body:"<strong>Токио</strong> — отель Синдзюку. <strong>Кавагутико</strong> — рёкан с онсэном. <strong>Киото</strong> — отель у Гиона. <strong>Осака</strong> — отель в районе Намба." },
+  { icon:"🍁", title:"Ноябрь — koyo", body:"Пик осенней листвы. Клёны горят <strong>красным и оранжевым</strong>. Температура +10–16°C, сухо, ясно. Лучшее время для Японии." },
+  { icon:"🎟", title:"Хогвартс", body:"<strong>Warner Bros. Studio Tour Tokyo</strong> — крупнейший аттракцион Гарри Поттера в мире, первый в Азии. Большой зал, Косой переулок, Хогвартс-Экспресс." },
+  { icon:"💴", title:"Деньги", body:"Япония — страна наличных. Обмен в аэропорту или снятие в <strong>7-Eleven ATM</strong>. Бюджет на еду: ¥3–8 тысяч в день." },
+  { icon:"👥", title:"Группа", body:"Авторский тур с небольшой группой — попадаем в <strong>маленькие рестораны</strong>, не стоим в очередях, ездим вместе." },
+];
+
+const pg = document.getElementById('practicalGrid');
+practicalData.forEach(p => {
+  const cell = document.createElement('div');
+  cell.className = 'prac-cell';
+  cell.innerHTML = `<div class="prac-icon">${p.icon}</div><div class="prac-title">${p.title}</div><div class="prac-body">${p.body}</div>`;
+  pg.appendChild(cell);
+});
+
+// Observer
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.tl-row').forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
